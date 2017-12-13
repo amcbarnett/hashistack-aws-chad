@@ -6,16 +6,6 @@ data "aws_ami" "hashistack" {
   most_recent = true
   owners      = ["362381645759"] # hc-se-demos Hashicorp Demos New Account
   name_regex  = "${var.environment}-hashistack-server-${var.binary_type}-${var.os}_${var.os_version}.*"
-
-  filter {
-    name   = "tag:System"
-    values = ["HashiStack"]
-  }
-
-  filter {
-    name   = "tag:Environment"
-    values = ["${var.environment}"]
-  }
 }
 
 resource "aws_iam_role" "hashistack_server" {
