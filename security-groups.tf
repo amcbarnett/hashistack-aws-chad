@@ -21,7 +21,7 @@ resource "aws_security_group" "hashistack_server" {
     from_port   = 8200
     to_port     = 8200
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["0.0.0.0/0", "::/0"]
   }
 
   # Vault Cluster Traffic
@@ -120,7 +120,7 @@ resource "aws_security_group" "consul_client" {
     from_port   = 8200
     to_port     = 8200
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["0.0.0.0/0", "::/0"]
   }
 
   # Serf (TCP)
