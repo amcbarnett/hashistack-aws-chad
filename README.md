@@ -1,7 +1,7 @@
 # hashistack-aws 
 Provides the resources for an Autoscaling group in AWS running Consul, Vault and Nomad. 
 
-## Requirements
+## Requirements  
 
 This module requires a pre-existing AWS key pair, VPC and subnet be available to
 deploy the auto-scaling group within. It's recommended you combine this module
