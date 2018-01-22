@@ -1,5 +1,5 @@
 # hashistack-aws 
-Provides the resources for an Autoscaling group in AWS running Consul, Vault and Nomad.   
+Provides the resources for an Autoscaling group in AWS running Consul, Vault and Nomad.
 
 ## Requirements
 
