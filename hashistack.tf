@@ -37,7 +37,8 @@ resource "aws_launch_configuration" "hashistack_server" {
   associate_public_ip_address = false
   ebs_optimized               = false
   iam_instance_profile        = "${aws_iam_instance_profile.hashistack_server.id}"
-  image_id      = "${data.aws_ami.hashistack.id}"
+  #image_id      = "${data.aws_ami.hashistack.id}"
+  image_id      = "ami-921a06f6"
   instance_type = "${var.instance_type}"
   user_data     = "${data.template_file.init.rendered}"
   key_name      = "${var.ssh_key_name}"
