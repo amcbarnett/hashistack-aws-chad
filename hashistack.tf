@@ -4,7 +4,7 @@ terraform {
 
 data "aws_ami" "hashistack" {
   most_recent = true
-  owners      = ["362381645759"] # hc-se-demos Hashicorp Demos New Account
+  owners      = ["128997349609"] # hc-se-demos Hashicorp Demos New Account
   name_regex  = "${var.environment}-hashistack-server-${var.binary_type}-${var.os}_${var.os_version}.*"
 }
 
