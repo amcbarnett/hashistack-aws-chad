@@ -46,7 +46,7 @@ variable "environment" {
 }
 
 variable "instance_type" {
-  default     = "m4.large"
+  default     = "t2.micro"
   description = "AWS instance type to use eg m4.large"
 }
 
