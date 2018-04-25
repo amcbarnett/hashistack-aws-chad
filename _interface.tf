@@ -36,11 +36,12 @@ variable "ssh_key_name" {
 variable "subnet_ids" {
   type        = "list"
   description = "Pre-existing Subnet ID(s) to use"
-  default     = "vpc-fake"
+  default     = ["subnet-fake"]
 }
 
 variable "vpc_id" {
   description = "Pre-existing VPC ID to use"
+  default     = "vpc-fake"
 }
 
 # Optional variables
