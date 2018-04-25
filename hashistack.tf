@@ -55,7 +55,7 @@ resource "aws_launch_configuration" "hashistack_server" {
 
 resource "aws_autoscaling_group" "hashistack_server" {
   launch_configuration = "${aws_launch_configuration.hashistack_server.id}"
-  vpc_zone_identifier  = ["${var.subnet_ids}"]
+  vpc_zone_identifier  = ["${data.terraform_remote_state.network.subnet_public_ids}"]
   name                 = "${var.cluster_name} HashiStack Servers"
   max_size             = "${var.cluster_size}"
   min_size             = "${var.cluster_size}"

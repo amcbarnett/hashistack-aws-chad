@@ -1,7 +1,7 @@
 resource "aws_security_group" "hashistack_server" {
   name        = "${var.cluster_name}-hashistack-server-sg"
   description = "Security Group for HashiStack Server Instances"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = "${data.terraform_remote_state.network.vpc_id}"
 
   tags {
     Name    = "HashiStack Server (${var.cluster_name})"
@@ -114,7 +114,7 @@ resource "aws_security_group" "consul_client" {
     Name          = "Consul Client (${var.cluster_name})"
     ConsulCluster = "${replace(var.cluster_name, " ", "")}"
   }
-  
+
   # Allow Vault UI
   ingress {
     from_port   = 8200
