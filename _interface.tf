@@ -1,3 +1,11 @@
+# Data sources
+data "terraform_remote_state" "network" {
+  backend = "atlas"
+  config {
+    name = "LM-Cloud-Operations/network-dmz-dev"
+  }
+}
+
 # Required variables
 variable "cluster_name" {
   description = "Auto Scaling Group Cluster Name"
@@ -28,10 +36,12 @@ variable "ssh_key_name" {
 variable "subnet_ids" {
   type        = "list"
   description = "Pre-existing Subnet ID(s) to use"
+  default     = "${data.terraform_remote_state.network.subnet_public_ids}"
 }
 
 variable "vpc_id" {
   description = "Pre-existing VPC ID to use"
+  default     = "${data.terraform_remote_state.network.vpc_id}"
 }
 
 # Optional variables
