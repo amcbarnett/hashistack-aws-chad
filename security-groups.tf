@@ -108,7 +108,7 @@ resource "aws_security_group" "hashistack_server" {
 resource "aws_security_group" "consul_client" {
   name        = "${var.cluster_name}-consul-client-sg"
   description = "Security Group for Consul Client Instances"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = "${data.terraform_remote_state.network.vpc_id}"
 
   tags {
     Name          = "Consul Client (${var.cluster_name})"
